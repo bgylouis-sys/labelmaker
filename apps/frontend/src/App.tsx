@@ -10,6 +10,8 @@ import ContainerForm from './pages/ContainerForm';
 import ItemView from './pages/ItemView';
 import UserManagement from './pages/UserManagement';
 import ContainerList from './pages/ContainerList';
+import ItemHistoryList from './pages/ItemHistoryList';
+import ContainerHistoryList from './pages/ContainerHistoryList';
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('token');
@@ -49,7 +51,9 @@ export default function App() {
         <Route path="items/new" element={<ItemForm />} />
         <Route path="items/:id/edit" element={<ItemForm />} />
         <Route path="items" element={<ItemList />} />
+        <Route path="items/history" element={<ItemHistoryList />} />
         <Route path="containers" element={<ContainerList />} />
+        <Route path="containers/history" element={<ContainerHistoryList />} />
         <Route path="containers/new" element={<ContainerForm />} />
         <Route path="containers/:id/edit" element={<ContainerForm />} />
         <Route

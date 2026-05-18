@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import ItemDetails from './ItemDetails';
 import type { Item } from '../store/itemStore';
+import { translateUnit } from '../utils/unitTranslator';
 
 const typeColors: Record<string, string> = {
   simple: 'blue',
@@ -37,6 +38,16 @@ function PartSubTable({ parts, parentNameCn, parentNameEn, onPrintPart, selected
       width: 100,
       render: (_: unknown, r: Item) =>
         r.weightGross != null ? `${r.weightGross} kg` : '-',
+    },
+    {
+      title: t('item.quantity'),
+      key: 'quantity',
+      width: 100,
+      render: (_: unknown, r: Item) => {
+        const en = translateUnit(r.unit);
+        const u = en ? `${r.unit}/${en}` : r.unit;
+        return u ? `${r.quantity ?? 1} ${u}` : String(r.quantity ?? 1);
+      },
     },
     {
       title: t('item.size'),
@@ -105,6 +116,16 @@ export default function ItemTable({
       render: (type: string) => (
         <Tag color={typeColors[type]}>{t(`item.${type}`)}</Tag>
       ),
+    },
+    {
+      title: t('item.quantity'),
+      key: 'quantity',
+      width: 110,
+      render: (_: unknown, record: Item) => {
+        const en = translateUnit(record.unit);
+        const u = en ? `${record.unit}/${en}` : record.unit;
+        return u ? `${record.quantity ?? 1} ${u}` : String(record.quantity ?? 1);
+      },
     },
     {
       title: t('item.belongsToContainer'),

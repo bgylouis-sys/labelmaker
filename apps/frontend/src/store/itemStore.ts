@@ -13,6 +13,9 @@ export interface Item {
   length: number | null;
   width: number | null;
   height: number | null;
+  quantity: number;
+  unit: string | null;
+  unitEn: string | null;
   parentId: string | null;
   partDescription: string | null;
   isContainer: boolean;

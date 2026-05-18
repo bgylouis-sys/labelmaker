@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Typography, Spin, Descriptions, Tag, Divider, Card } from 'antd';
 import type { Item } from '../store/itemStore';
 import api from '../api/client';
+import { translateUnit } from '../utils/unitTranslator';
 
 const typeColors: Record<string, string> = {
   simple: 'blue',
@@ -107,6 +108,9 @@ export default function ItemView() {
               {item.weightNet} kg
             </Descriptions.Item>
           )}
+          <Descriptions.Item label="Quantity / 数量">
+            {item.quantity ?? 1}{item.unit ? ` ${item.unit}` : ''}{translateUnit(item.unit) ? ` / ${translateUnit(item.unit)}` : ''}
+          </Descriptions.Item>
           {item.length != null && item.width != null && item.height != null && (
             <Descriptions.Item label="Size / 尺寸">
               {item.length} × {item.width} × {item.height} cm
@@ -134,12 +138,13 @@ export default function ItemView() {
                   <Typography.Text type="secondary">{part.partDescription}</Typography.Text>
                 </>
               )}
-              {(part.weightGross != null || part.length != null) && (
+              {(part.weightGross != null || part.length != null || part.quantity != null) && (
                 <>
                   <br />
                   <Typography.Text type="secondary">
                     {part.weightGross != null && `Gross: ${part.weightGross}kg `}
-                    {part.length != null && `Size: ${part.length}×${part.width}×${part.height}cm`}
+                    {part.length != null && `Size: ${part.length}×${part.width}×${part.height}cm `}
+                    {`Qty: ${part.quantity ?? 1}${part.unit ? ` ${part.unit}` : ''}${translateUnit(part.unit) ? ` / ${translateUnit(part.unit)}` : ''}`}
                   </Typography.Text>
                 </>
               )}

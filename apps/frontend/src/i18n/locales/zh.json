@@ -9,11 +9,13 @@
     "items": "货物管理",
     "itemsNew": "新建货物",
     "itemsList": "货物列表",
+    "itemsHistory": "历史货物",
     "containers": "容器管理",
     "containerNew": "新建容器",
     "users": "用户管理",
     "settings": "设置",
-    "containerList": "容器列表"
+    "containerList": "容器列表",
+    "containerHistory": "历史容器"
   },
   "item": {
     "type": "货物类型",
@@ -28,6 +30,8 @@
     "length": "长度 (cm)",
     "width": "宽度 (cm)",
     "height": "高度 (cm)",
+    "quantity": "数量",
+    "unit": "单位",
     "uniqueCode": "唯一编号",
     "partDescription": "部件说明",
     "parts": "部件列表",

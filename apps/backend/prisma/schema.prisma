@@ -31,6 +31,10 @@ model Item {
   width           Float?
   height          Float?
 
+  quantity        Int      @default(1)
+  unit            String?
+  unitEn          String?
+
   parentId        String?
   parent          Item?            @relation("ItemParts", fields: [parentId], references: [id])
   parts           Item[]           @relation("ItemParts")

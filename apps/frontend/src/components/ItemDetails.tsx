@@ -1,5 +1,6 @@
 import { Descriptions, Tag } from 'antd';
 import type { Item } from '../store/itemStore';
+import { translateUnit } from '../utils/unitTranslator';
 
 interface Props {
   item: Item;
@@ -52,6 +53,9 @@ export default function ItemDetails({ item }: Props) {
           {item.weightNet} kg
         </Descriptions.Item>
       )}
+      <Descriptions.Item label="Quantity / 数量">
+        {item.quantity ?? 1}{item.unit ? ` ${item.unit}` : ''}{translateUnit(item.unit) ? ` / ${translateUnit(item.unit)}` : ''}
+      </Descriptions.Item>
       {item.length != null && item.width != null && item.height != null && (
         <Descriptions.Item label="Size / 尺寸">
           {item.length} × {item.width} × {item.height} cm

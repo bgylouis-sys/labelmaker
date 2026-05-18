@@ -9,11 +9,13 @@
     "items": "Items",
     "itemsNew": "New Item",
     "itemsList": "Item List",
+    "itemsHistory": "Historical Items",
     "containers": "Containers",
     "containerNew": "New Container",
     "users": "User Management",
     "settings": "Settings",
-    "containerList": "Container List"
+    "containerList": "Container List",
+    "containerHistory": "Historical Containers"
   },
   "item": {
     "type": "Item Type",
@@ -28,6 +30,8 @@
     "length": "Length (cm)",
     "width": "Width (cm)",
     "height": "Height (cm)",
+    "quantity": "Quantity",
+    "unit": "Unit",
     "uniqueCode": "Unique Code",
     "partDescription": "Part Description",
     "parts": "Parts",

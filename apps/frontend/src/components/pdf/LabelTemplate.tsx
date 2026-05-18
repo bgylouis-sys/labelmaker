@@ -1,5 +1,6 @@
 import { Font, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
 import type { Item } from '../../store/itemStore';
+import { translateUnit } from '../../utils/unitTranslator';
 import NotoSansSCRegular from '../../assets/fonts/NotoSansSC-Regular.ttf';
 import NotoSansSCBold from '../../assets/fonts/NotoSansSC-Bold.ttf';
 
@@ -135,6 +136,14 @@ export default function LabelTemplate({ item, qrDataURL, consignee, parentNameCn
         )}
         {item.weightNet != null && (
           <Text style={styles.specItem}>净重 / Net Weight: {item.weightNet}kg</Text>
+        )}
+        <Text style={styles.specItem}>
+          数量 / Qty: {item.quantity ?? 1}
+        </Text>
+        {item.unit && (
+          <Text style={styles.specItem}>
+            单位 / Unit: {item.unit}{translateUnit(item.unit) ? ` / ${translateUnit(item.unit)}` : ''}
+          </Text>
         )}
         {item.length != null && item.width != null && item.height != null && (
           <Text style={styles.specItem}>

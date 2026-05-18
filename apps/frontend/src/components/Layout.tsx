@@ -11,6 +11,7 @@ import {
   UserOutlined,
   LogoutOutlined,
   DashboardOutlined,
+  HistoryOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/authStore';
@@ -48,6 +49,11 @@ export default function Layout() {
           icon: <UnorderedListOutlined />,
           label: t('nav.itemsList'),
         },
+        {
+          key: '/items/history',
+          icon: <HistoryOutlined />,
+          label: t('nav.itemsHistory'),
+        },
       ],
     },
     {
@@ -64,6 +70,11 @@ export default function Layout() {
           key: '/containers',
           icon: <UnorderedListOutlined />,
           label: t('nav.containerList'),
+        },
+        {
+          key: '/containers/history',
+          icon: <HistoryOutlined />,
+          label: t('nav.containerHistory'),
         },
       ],
     },

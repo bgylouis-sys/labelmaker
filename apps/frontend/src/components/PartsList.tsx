@@ -95,6 +95,18 @@ export default function PartsList() {
                   </Form.Item>
                 </Col>
               </Row>
+              <Row gutter={12}>
+                <Col span={6}>
+                  <Form.Item {...restField} name={[name, 'quantity']} label={t('item.quantity')} initialValue={1}>
+                    <InputNumber min={1} step={1} style={{ width: '100%' }} />
+                  </Form.Item>
+                </Col>
+                <Col span={6}>
+                  <Form.Item {...restField} name={[name, 'unit']} label={t('item.unit')}>
+                    <Input />
+                  </Form.Item>
+                </Col>
+              </Row>
             </Card>
           ))}
           <Button type="dashed" onClick={() => add()} block>

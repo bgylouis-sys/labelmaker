@@ -55,6 +55,18 @@ export default function ComplexItemForm() {
           </Form.Item>
         </Col>
       </Row>
+      <Row gutter={16}>
+        <Col span={8}>
+          <Form.Item name="quantity" label={t('item.quantity')} initialValue={1}>
+            <InputNumber min={1} step={1} style={{ width: '100%' }} />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <Form.Item name="unit" label={t('item.unit')}>
+            <Input placeholder={isZh ? '如：个、台、套' : 'e.g. pcs, set, kg'} />
+          </Form.Item>
+        </Col>
+      </Row>
       <Divider>{t('item.parts')}</Divider>
       <PartsList />
     </>

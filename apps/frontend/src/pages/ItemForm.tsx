@@ -40,6 +40,8 @@ export default function ItemForm() {
           length: p.length,
           width: p.width,
           height: p.height,
+          quantity: p.quantity,
+          unit: p.unit,
         }));
       }
       form.setFieldsValue(values);
